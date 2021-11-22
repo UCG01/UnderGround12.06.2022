@@ -27,20 +27,25 @@ public class ChatListAdapter extends ArrayAdapter<ToDoChat> {
     @Override
     public View getView(final int position, final View converterView, final ViewGroup parent) {
         ToDoChat currentToDo = getItem(position);
-
+System.out.println("TIME143: "+currentToDo.getTime());
         View view = converterView;
 
         if (view == null) {
 
-            if (position % 2 == 0) {
+            if (currentToDo.getId() % 2 == 0) {
                 view = LayoutInflater.from(getContext()).inflate(R.layout.chat_listitem_other, parent, false);
             } else {
                 view = LayoutInflater.from(getContext()).inflate(R.layout.chat_listitem, parent, false);
 
             }
         }
-        ((TextView) view.findViewById(R.id.name)).setText("UCG\n"+currentToDo.getName());
-        System.out.println("TEst " + currentToDo.getName());
+        ((TextView) view.findViewById(R.id.name)).setText(currentToDo.getName()+"\n"+currentToDo.getMSG());
+        System.out.println("TEst5 " + currentToDo.getMSG()+" "+currentToDo.getTime());
+
+        String buffer = String.valueOf(currentToDo.getTime());
+        String[] buffersplit = buffer.split(" ");
+        
+
 
 
         return view;

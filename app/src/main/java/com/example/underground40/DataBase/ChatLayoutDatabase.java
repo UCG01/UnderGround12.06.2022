@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 import com.example.underground40.Model.ToDo;
+import com.example.underground40.Model.ToDoChatLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,13 +18,14 @@ import java.util.List;
 public class ChatLayoutDatabase extends SQLiteOpenHelper {
     public  static  ChatLayoutDatabase INSTANCE = null;
 
-    private static final String DB_NAME = "TODOS";
-    private static final int Version = 6;
-    private static final String TABLE_NAME = "todos";
+    private static final String DB_NAME = "ChatLayout";
+    private static final int Version = 9;
+    private static final String TABLE_NAME = "ChatLayout";
 
     private static final String ID_COLUMN = "ID";
     private static final String NAME_COLUMN = "name";
     private static final String DUEDATE_COLUMN = "dueDate";
+    private static final String PICTURE = "picture";
 
     private  ChatLayoutDatabase(final Context context) {
         super(context, DB_NAME,null, Version);
@@ -37,7 +39,7 @@ public class ChatLayoutDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createQuery = " CREATE TABLE "+ TABLE_NAME + " ( "+ ID_COLUMN+ " INTEGER PRIMARY KEY, "+ NAME_COLUMN+ " TEXT NOT NULL, "+ DUEDATE_COLUMN + " INTEGER DEFAULT NULL)";
+        String createQuery = " CREATE TABLE "+ TABLE_NAME + " ( "+ ID_COLUMN+ " INTEGER PRIMARY KEY, "+ NAME_COLUMN+ " TEXT NOT NULL, "+ DUEDATE_COLUMN + " INTEGER DEFAULT NULL, "+PICTURE+ " TEXT DEFAULT NULL)";
         sqLiteDatabase.execSQL(createQuery);
     }
 
@@ -50,13 +52,13 @@ public class ChatLayoutDatabase extends SQLiteOpenHelper {
     }
 
 
-    public ToDo createToDo(final ToDo todo){
+    public ToDo createToDo(final ToDoChatLayout todo){
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(NAME_COLUMN, todo.getName());
         values.put(DUEDATE_COLUMN, todo.getDueDate()== null ? null : todo.getDueDate().getTimeInMillis() /1000);
-
+        values.put(PICTURE, todo.getPicture());
         long newID = database.insert(TABLE_NAME, null , values);
 
 
@@ -66,7 +68,7 @@ public class ChatLayoutDatabase extends SQLiteOpenHelper {
     private ToDo readTodo(final long id) {
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.query
-                (TABLE_NAME, new String[]{ID_COLUMN, NAME_COLUMN, DUEDATE_COLUMN}, ID_COLUMN + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+                (TABLE_NAME, new String[]{ID_COLUMN, NAME_COLUMN, DUEDATE_COLUMN,PICTURE}, ID_COLUMN + " = ?", new String[]{String.valueOf(id)}, null, null, null);
 
         ToDo todo = null;
         if (cursor != null && cursor.getCount() > 0) {
@@ -86,14 +88,14 @@ public class ChatLayoutDatabase extends SQLiteOpenHelper {
         return  todo;
     }
 
-    public List<ToDo> readALLToDos(){
-        List<ToDo> toDos = new ArrayList<>();
+    public List<ToDoChatLayout> readALLToDos(){
+        List<ToDoChatLayout> toDos = new ArrayList<>();
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.rawQuery("SELECT * FROM "+ TABLE_NAME, null);
 
         if (cursor.moveToFirst()){
             do{
-                ToDo toDo = readTodo(cursor.getLong(cursor.getColumnIndex(ID_COLUMN)));
+                ToDoChatLayout toDo = readTodo(cursor.getLong(cursor.getColumnIndex(ID_COLUMN)));
                 if(toDo != null){
                     toDos.add(toDo);
                 }
@@ -104,7 +106,7 @@ public class ChatLayoutDatabase extends SQLiteOpenHelper {
         return toDos;
     }
 
-    public ToDo updateToDo(final ToDo toDo){
+    public ToDoChatLayout updateToDo(final ToDo toDo){
         SQLiteDatabase database = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();

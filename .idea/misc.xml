@@ -3,16 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/drawable/rounded.xml" value="0.2546875" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/activity_main.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/activity_todo_deatil.xml" value="0.11927083333333334" />
-        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chat_layout.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/buffer.xml" value="0.1160081053698075" />
+        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chat_lay.xml" value="0.2" />
+        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chat_layout.xml" value="1.0" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chat_listitem.xml" value="0.264" />
-        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chat_listitem_other.xml" value="0.13360507246376813" />
+        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chat_listitem_other.xml" value="0.2" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/chatoverlay_layout.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/fragment_main.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/registriren_layout.xml" value="0.1480978260869565" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/status_layout.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/test.xml" value="0.4292763157894737" />
         <entry key="..\:/Users/hosts/AndroidStudioProjects/UnderGround40/app/src/main/res/layout/todo_overview_listitem.xml" value="0.264" />
       </map>
     </option>

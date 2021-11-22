@@ -7,6 +7,7 @@ public class ToDoChatLayout implements Serializable {
     private  long id;
     private String name;
     private Calendar dueDate;
+    private String picture;
 
 
 
@@ -21,7 +22,8 @@ public class ToDoChatLayout implements Serializable {
         this.dueDate = dueDate;
     }
 
-
+    public ToDoChatLayout() {
+    }
 
 
     public String getName() {
@@ -30,6 +32,14 @@ public class ToDoChatLayout implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public Calendar getDueDate() {

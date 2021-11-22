@@ -26,6 +26,7 @@ import com.example.underground40.adapter.ToDoOverviewListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Chat  extends AppCompatActivity implements View.OnClickListener {
@@ -39,7 +40,7 @@ public class Chat  extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat_layout);
+        setContentView(R.layout.chat_lay);
 
         Bundle buffer = getIntent().getExtras();
         String name = buffer.getString("name");
@@ -51,12 +52,13 @@ public class Chat  extends AppCompatActivity implements View.OnClickListener {
 
 
 
-        this.listView = findViewById(R.id.chats);
+        this.listView = findViewById(R.id.chats1);
 
-        add = (ImageButton) findViewById(R.id.send);
+        add = (ImageButton) findViewById(R.id.send1);
         add.setOnClickListener((View.OnClickListener) this);
+        add.bringToFront();
 
-ChatDatabase.Version=ChatDatabase.Version+1;
+
         this.dataSource = ChatDatabase.getInstance(this).readALLToDos();
 
         this.adapter= new ChatListAdapter(this, dataSource);
@@ -77,8 +79,8 @@ ChatDatabase.Version=ChatDatabase.Version+1;
 
 
 
-
-
+// Set scroll to the last Position
+        this.listView.setSelection(this.listView.getCount());
 
 
     }
@@ -100,15 +102,18 @@ ChatDatabase.Version=ChatDatabase.Version+1;
         if(view==add) {
             System.out.println("Create123");
 
-             msg = (EditText) findViewById(R.id.nachricht);
+             msg = (EditText) findViewById(R.id.MSG);
             ChatDatabase database = ChatDatabase.getInstance(view.getContext());
 
             String text = msg.getEditableText().toString();
+            boolean send = false;
+            boolean get = false;
 
-            database.createToDo(new ToDoChat("UCG",Calendar.getInstance().getTime(),text));
+            database.createToDo(new ToDoChat("UCG",java.text.DateFormat.getDateTimeInstance().format(new Date()),text,send,get));
 
 
             refreshListView();
+            msg.setText("");
         }else{
             System.out.println("ERROR123");
         }

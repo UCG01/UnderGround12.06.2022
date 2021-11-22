@@ -9,23 +9,24 @@ import android.widget.TextView;
 
 
 import com.example.underground40.Model.ToDo;
+import com.example.underground40.Model.ToDoChatLayout;
 import com.example.underground40.R;
 
 import java.util.Calendar;
 import java.util.List;
 
 
-public class ToDoOverviewListAdapter extends ArrayAdapter<ToDo> {
+public class ToDoOverviewListAdapter extends ArrayAdapter<ToDoChatLayout> {
 
 
-    public ToDoOverviewListAdapter(final Context context, final List<ToDo> objects) {
+    public ToDoOverviewListAdapter(final Context context, final List<ToDoChatLayout> objects) {
         super(context, 0, objects);
     }
 
 
     @Override
     public View getView(final int position, final View converterView, final ViewGroup parent) {
-        ToDo currentToDo = getItem(position);
+        ToDoChatLayout currentToDo = getItem(position);
 
         View view = converterView;
 

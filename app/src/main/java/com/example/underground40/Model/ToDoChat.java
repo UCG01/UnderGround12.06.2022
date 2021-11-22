@@ -8,26 +8,36 @@ public class ToDoChat implements Serializable {
     private  long id;
     private String name;
     private Calendar dueDate;
-    private Date time;
+    private String time;
     private String msg;
+    private boolean send;
+    private boolean get;
 
 
 
 
 
     public ToDoChat(final String name){
-        this(name, (Date) null,(String));
+        this(name, null);
     }
 
-    public ToDoChat( final String name, final Calendar dueDate) {
+
+    public ToDoChat( final String name, final String time) {
         this.name = name;
-        this.dueDate = dueDate;
+        this.time = time;
     }
 
-    public ToDoChat(String name, Date time,String text) {
-        this.name = text;
+    public ToDoChat(String name, String time,String msg,boolean send,boolean get) {
+        this.msg = msg;
+        this.name = name;
         this.time =time;
+
+        this.send = send;
+        this.get = get;
+
     }
+
+
 
 
     public String getName() {
@@ -42,24 +52,32 @@ public class ToDoChat implements Serializable {
         return msg;
     }
 
-    public void setMSG(String name) {
+    public void setMSG(String msg) {
         this.msg = msg;
     }
 
-    public Calendar getDueDate() {
-        return dueDate;
-    }
 
-    public void setDueDate(Calendar dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
+    }
+
+    public boolean getget() {
+        return get;
+    }
+
+    public void setget(boolean get) {
+        this.get = get;
+    }
+    public boolean getsend() {
+        return send;
+    }
+
+    public void setsend(boolean send) {
+        this.send = send;
     }
 
     public  long getId(){

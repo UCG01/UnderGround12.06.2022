@@ -25,6 +25,7 @@
         </activity>
 <activity android:name=".ui.main.Haupt"></activity>
         <activity android:name=".ui.main.Chat"></activity>
+        <activity android:name=".ui.main.Regestrieren"></activity>
     </application>
 
 </manifest>

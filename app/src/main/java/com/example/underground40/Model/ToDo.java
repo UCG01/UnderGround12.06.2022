@@ -3,7 +3,7 @@ package com.example.underground40.Model;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class ToDo implements Serializable {
+public class ToDo extends ToDoChatLayout implements Serializable {
     private  long id;
     private String name;
     private Calendar dueDate;
@@ -17,6 +17,8 @@ public class ToDo implements Serializable {
     }
 
     public ToDo( final String name, final Calendar dueDate) {
+
+
         this.name = name;
         this.dueDate = dueDate;
     }
